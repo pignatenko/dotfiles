@@ -1,4 +1,6 @@
 zsh/history
 zsh/antibody
 zsh/bundles
+zsh/.zshrc
+zsh/.zshenv
 nvim/plugged
