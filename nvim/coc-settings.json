@@ -1,0 +1,19 @@
+{
+  "suggest.autoTrigger": "none",
+  "solargraph.useBundler": true,
+  "solargraph.bundlerPath": "/Users/pignatenko/.rbenv/shims/bundle",
+  "solargraph.checkGemVersion": false,
+  "solargraph.diagnostics": true,
+  "solargraph.completion": true,
+  "solargraph.formatting": true,
+  "solargraph.autoformat": true,
+  "solargraph.hover": true,
+  "solargraph.symbols": true,
+  "solargraph.definitions": true,
+  "solargraph.rename": true,
+  "solargraph.references": true,
+  "solargraph.logLevel": "debug",
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": ""
+}

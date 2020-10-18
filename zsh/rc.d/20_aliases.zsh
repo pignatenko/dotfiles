@@ -1,0 +1,7 @@
+alias rg="rg -i"
+alias icat="kitty +kitten icat"
+alias kdiff="kitty +kitten diff"
+alias kpanel="kitty +kitten panel"
+alias kcopy="kitty +kitten clipboard; kitty +kitten clipboard --get-clipboard"
+alias pbcopy="pbcopy; pbpaste"
+alias less="less -R"

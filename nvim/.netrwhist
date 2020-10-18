@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/Users/pignatenko/rest-api-service/src/common/services/auditLogger'
+let g:netrw_dirhist_6='/Users/pignatenko/rest-api-service/src/server/modules/voice'
+let g:netrw_dirhist_5='/Users/pignatenko/.config'
+let g:netrw_dirhist_4='/Users/pignatenko/.config/nvim'
+let g:netrw_dirhist_3='/Users/pignatenko/.config/nvim/rc.d'
+let g:netrw_dirhist_2='/Users/pignatenko/.config/nvim/plugged/vim-dogrun/colors'
+let g:netrw_dirhist_1='/Users/pignatenko/.config/nvim/plugged/vim-dogrun'
+let g:netrw_dirhist_0='/Users/pignatenko/.config/nvim/plugged'
+let g:netrw_dirhist_9='/Users/pignatenko/.config/nvim'
+let g:netrw_dirhist_8='/Users/pignatenko/.config'
