@@ -3,4 +3,5 @@ zsh/antibody
 zsh/bundles
 zsh/.zshrc
 zsh/.zshenv
+zsh/.zcompdump
 nvim/plugged
