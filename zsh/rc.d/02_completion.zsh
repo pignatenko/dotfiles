@@ -1,5 +1,6 @@
 autoload -Uz compinit
-if  [[ -f "${ZDOTDIR}/.zcompdump" ]] && [ $(date +'%j') != $(stat -f '%Sm' -t '%j' "${ZDOTDIR}/.zcompdump") ]; then
+
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
   compinit
 else
   compinit -C

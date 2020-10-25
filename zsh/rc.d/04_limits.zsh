@@ -1,1 +1,3 @@
-ulimit -n 500000
+if [[ "$OPERATING_SYSTEM" == "Darwin" ]]; then
+  ulimit -n 50000
+fi
