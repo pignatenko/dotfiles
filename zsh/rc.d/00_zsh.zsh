@@ -28,6 +28,8 @@ setopt PUSHD_MINUS
 setopt PUSHD_SILENT
 # Have pushd with no arguments act like ‘pushd $HOME’.
 setopt PUSHD_TO_HOME
+# Extended globs
+setopt EXTENDEDGLOB
 
 declare -a chpwd_functions
 
