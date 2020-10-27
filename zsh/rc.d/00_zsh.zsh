@@ -40,3 +40,7 @@ disable_alias() {
 enable_alias() {
   unfunction alias
 }
+
+silent() {
+  "$@" &> /dev/null
+}
