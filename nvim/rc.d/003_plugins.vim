@@ -42,6 +42,7 @@ Plug 'easymotion/vim-easymotion'
 
 " Show the register when using " or @
 Plug 'junegunn/vim-peekaboo'
+let g:peekaboo_window = 'call CreateRightSideFloatingWindow()'
 
 " */# highlights without moving curosr, highlight removed moving cursor
 " Plug 'junegunn/vim-slash'
@@ -83,8 +84,6 @@ endif
 
 
 " Plug 'ludovicchabant/vim-gutentags'
-Plug 'tpope/vim-fugitive'
-set diffopt+=vertical
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-dispatch'
@@ -155,7 +154,6 @@ Plug 'saltstack/salt-vim'
 Plug 'vim-scripts/dbext.vim', { 'on': ['DBExecVisualSQL', 'DBExecVisualSQLTopX', 'DBExecSQLUnderCursor', 'DBExecSQLUnderCursorTopX', 'DBExecSQL', 'DBExecRangeSQL', 'DBSelectFromTable', 'DBSelectFromTableWithWhere', 'DBSelectFromTableAskName', 'DBSelectFromTableTopX', 'DBDescribeTable', 'DBDescribeTableAskName', 'DBDescribeProcedure', 'DBDescribeProcedureAskName', 'DBPromptForBufferParameters', 'DBListColumn', 'DBListTable', 'DBListProcedure', 'DBListView', 'DBOrientationToggle', 'DBHistory', 'DBGetStoredProcBody', 'DBGetStoredProcTemplate']}
 
 " Javascript
-Plug 'marijnh/tern_for_vim', { 'for': [ 'javascript' ] }
 Plug 'pangloss/vim-javascript', { 'for': [ 'javascript' ] }
 
 " Typescript
@@ -208,5 +206,7 @@ let g:mkdp_preview_options = {
 " inoremap <expr> <C-X><C-O> deoplete#mappings#manual_complete()
 Plug 'gyim/vim-boxdraw'
 
+Plug 'tpope/vim-fugitive'
+set diffopt+=vertical
 call plug#end()
 

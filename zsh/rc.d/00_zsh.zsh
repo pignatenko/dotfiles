@@ -1,8 +1,8 @@
 bindkey -e
 
-HISTFILE="$ZDOTDIR/history"
-HISTSIZE=100000
-SAVEHIST=100000
+export HISTFILE="$ZDOTDIR/history"
+export HISTSIZE=100000
+export SAVEHIST=100000
 
 # Add commands to history as they are entered, don't wait for shell to exit and
 # import them
