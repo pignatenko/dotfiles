@@ -50,7 +50,7 @@ set linespace=3
 set laststatus=2
 set numberwidth=6
 set foldmethod=syntax
-set foldlevelstart=3
+set foldlevelstart=99
 set foldcolumn=2
 set completeopt=longest,menuone
 

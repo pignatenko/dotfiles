@@ -98,6 +98,14 @@ nnoremap [q :cprev<cr>
 nnoremap ]q :cnext<cr>
 
 
+function! DiffMerge() range
+  echom a:firstline.'-'.a:lastline
+  execute a:firstline.','.a:lastline . ' g/^<\{7}\|^|\{7}\|^=\{7}\|^>\{7}/d'
+endfunction
+
+command! -range=% Gdeletemarkers <line1>,<line2>call DiffMerge()
+
+
 
 " If buftype = terminal && bufhidden= map this
 " tnoremap <Esc> <C-\><C-n>
