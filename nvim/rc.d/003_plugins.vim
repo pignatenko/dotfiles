@@ -165,6 +165,7 @@ Plug 'junegunn/goyo.vim', { 'on': ['Goyo', 'GoyoEnter', 'GoyoLeave'] }
 Plug 'junegunn/limelight.vim', { 'on': ['Limelight'] }
 
 
+let g:polyglot_disabled = ['csv']
 Plug 'sheerun/vim-polyglot'
 
 
@@ -207,6 +208,7 @@ let g:mkdp_preview_options = {
 Plug 'gyim/vim-boxdraw'
 
 Plug 'tpope/vim-fugitive'
+Plug 'mechatroner/rainbow_csv'
 set diffopt+=vertical
 call plug#end()
 
