@@ -1,0 +1,35 @@
+snippet desc 
+describe('${1:description}', () => {
+  ${0:it.todo('is not filled')}
+});
+
+endsnippet
+
+snippet it 
+it('${1:description}', async () => {
+  ${0:expect(false).toBeTruthy()}
+});
+
+endsnippet
+
+snippet behaves
+function itBehavesLike$1($0) => {
+  ${2:it.todo('is not filled')}
+}
+
+endsnippet
+
+snippet desce
+describe.each(${2:objects})('${1:description}', (${2/s$//}) => {
+  ${0:it.todo('is not filled')}
+});
+
+endsnippet
+
+snippet ite
+it.each(${2:objects})('${1:description}', (${2/s$//}) => {
+  ${0:expect(false).toBeTruthy()}
+});
+
+endsnippet
+

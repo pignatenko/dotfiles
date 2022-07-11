@@ -15,5 +15,8 @@
   "solargraph.logLevel": "debug",
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "",
-  "diagnostic.infoSign": ""
+  "diagnostic.infoSign": "",
+  "eslint.packageManager": "yarn",
+  "eslint.nodePath": ".yarn/sdks",
+  "workspace.workspaceFolderCheckCwd": false,
 }

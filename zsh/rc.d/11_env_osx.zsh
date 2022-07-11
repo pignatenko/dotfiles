@@ -15,4 +15,8 @@ if [[ "$OPERATING_SYSTEM" == "Darwin" ]]; then
 
   #OSX mysql
   export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+  #OSX Core utils - g prefix
+  export PATH="/usr/local/opt/coreutils/bin:$PATH"
+  export PATH="/usr/local/anaconda3/bin:$PATH"
 fi

@@ -93,7 +93,7 @@ function! ToggleTerminal()
   endif
 endfunction
 
-nnoremap <Leader>tt :call ToggleTerminal()<cr>
+" nnoremap <Leader>tt :call ToggleTerminal()<cr>
 nnoremap [q :cprev<cr>
 nnoremap ]q :cnext<cr>
 

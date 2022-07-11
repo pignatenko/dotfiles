@@ -115,6 +115,26 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "Debounce Button1",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "pointing_button": "button1"
+                                },
+                                "parameters": {
+                                    "basic.to_if_held_down_threshold_milliseconds": 30
+                                },
+                                "to_if_held_down": [
+                                    {
+                                        "pointing_button": "button1",
+                                        "repeat": true
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
                     }
                 ]
             },

@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+# TODO: Push contents into line history
+LINE_EDIT=`mktemp`
+echo "$@" >> "$LINE_EDIT"
+"$EDITOR" "$LINE_EDIT"
+source "$LINE_EDIT"
+rm "$LINE_EDIT"

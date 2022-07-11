@@ -1,0 +1,22 @@
+extends testing.javascript
+extends es6.modules
+
+
+snippet impsp 
+import { serviceProvider } from '@rategravity/context-injector';
+endsnippet
+
+snippet impgiv
+import given from 'given2';
+endsnippet
+
+snippet spf
+export const ${1:myServiceProviderFactory} = serviceProvider(
+  () =>
+    () => {
+    },
+  []
+);
+
+export type ${1/.*/\u$0/} = ReturnType<typeof $1.construct>;
+endsnippet
