@@ -19,4 +19,6 @@ if [[ "$OPERATING_SYSTEM" == "Darwin" ]]; then
   #OSX Core utils - g prefix
   export PATH="/usr/local/opt/coreutils/bin:$PATH"
   export PATH="/usr/local/anaconda3/bin:$PATH"
+
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
