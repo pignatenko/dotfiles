@@ -7,3 +7,4 @@ zsh/.zcompdump
 nvim/plugged
 nvim/plugin/packer_compiled.lua
 zsh/.zsh_sessions/*
+karabiner/automatic_backups/
