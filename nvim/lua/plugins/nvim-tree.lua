@@ -6,8 +6,20 @@ plugin = {
     require('plugins/vimp')[1],
     require('plugins/nvim-treesitter')[1],
   },
+  tag = 'nightly',
   config = function()
-    require'nvim-tree'.setup {}
+    require'nvim-tree'.setup({
+      renderer = {
+        icons = {
+          show = {
+            folder_arrow = true,
+            file = true,
+            folder = true,
+            git = true,
+          }
+        }
+      },
+    })
     local vimp = require('vimp')
     vimp.noremap('<leader>ff', ':NvimTreeFindFileToggle<CR>')
 
