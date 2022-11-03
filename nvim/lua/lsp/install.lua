@@ -1,18 +1,27 @@
 command = {}
 
 function command.run ()
-  local lsp_installer = require "nvim-lsp-installer"
+  local on_attach = require('lsp/on_attach')
 
-  local servers = require('lsp/servers')
-  for _, server_config in ipairs(servers) do
-    local server_name = server_config[1];
-
-    local is_found, lsp_server = lsp_installer.get_server(server_name)
-      if is_found and not lsp_server:is_installed() then
-        print("Installing LSP...  " .. server_name)
-        lsp_server:install()
-    end
-  end
+  require("mason").setup()
+  require("mason-lspconfig").setup({
+    ensure_installed = { 'tsserver' }
+  })
+  require("mason-lspconfig").setup_handlers {
+      -- The first entry (without a key) will be the default handler
+      -- and will be called for each installed server that doesn't have
+      -- a dedicated handler.
+      function (server_name) -- default handler (optional)
+          require("lspconfig")[server_name].setup {
+          on_attach = on_attach,
+          }
+      end,
+      -- Next, you can provide targeted overrides for specific servers.
+      -- For example, a handler override for the `rust_analyzer`:
+      -- ["rust_analyzer"] = function ()
+      --     require("rust-tools").setup {}
+      -- end
+  }
 end
 
 return command

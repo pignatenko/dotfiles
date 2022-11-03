@@ -2,11 +2,12 @@
 plugin = {
   'hrsh7th/nvim-cmp',
   requires = {
+    'williamboman/mason-lspconfig.nvim',
+    'williamboman/mason.nvim',
     'neovim/nvim-lspconfig',
     'nvim-lua/plenary.nvim',
     require('plugins/vimp')[1],
     require('plugins/nvim-treesitter')[1],
-    'williamboman/nvim-lsp-installer',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
