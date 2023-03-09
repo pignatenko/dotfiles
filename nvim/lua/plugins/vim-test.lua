@@ -6,7 +6,6 @@ plugin = {
   config = function ()
     vim.cmd([[
       let test#strategy = 'neovim'
-      let test#javascript#jest#executable = 'npx jest'
     ]])
     local vimp = require('vimp');
     vimp.nnoremap('<leader>tn', ':TestNearest<CR>')

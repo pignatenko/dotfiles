@@ -1,5 +1,6 @@
-lazyload v vim nvim fnm npm node yarn ng -- "__lazy_load_node"
+export PATH="node_modules/.bin/:$PATH"
 
+lazyload v vim nvim fnm npm node yarn ng -- "__lazy_load_node"
 __lazy_load_node() {
   eval "$(fnm env --multi)"
   rehash

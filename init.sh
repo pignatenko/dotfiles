@@ -2,6 +2,16 @@
 CWD=$(pwd)
 
 mkdir -p "$HOME/.config"
+
+
+rm "$CWD/zsh/.zshrc"
+rm "$CWD/zsh/.zshenv"
+rm "$HOME/.config/nvim"
+rm "$HOME/.zsh"
+rm "$HOME/.config/kitty"
+rm "$HOME/.tmux.conf"
+rm "$HOME/.config/karabiner"
+
 ln -s $CWD/nvim "$HOME/.config/nvim"
 ln -s $CWD/zsh "$HOME/.zsh"
 ln -s $CWD/zsh/zshrc "$HOME/.zsh/.zshrc"

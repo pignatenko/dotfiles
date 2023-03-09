@@ -3,6 +3,21 @@ command = {}
 function command.run ()
   local on_attach = require('lsp/on_attach')
 
+  local null_ls = require("null-ls")
+
+  local sources = {
+    null_ls.builtins.formatting.prettier,
+    null_ls.builtins.formatting.eslint_d,
+    null_ls.builtins.code_actions.eslint_d,
+    null_ls.builtins.diagnostics.eslint_d
+  }
+
+
+  null_ls.setup({
+    default_timeout = 10000,
+    sources = sources,
+    debug = true
+  })
   require("mason").setup()
   require("mason-lspconfig").setup({
     ensure_installed = { 'tsserver' }

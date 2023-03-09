@@ -1,7 +1,7 @@
 -- Syntax parser!
 plugin = {
   'nvim-treesitter/nvim-treesitter',
-  run = ':TSUpdate'
+  run = ':TSUpdate',
 }
 
 return plugin;
