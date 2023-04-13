@@ -5,18 +5,24 @@ function command.run ()
 
   local null_ls = require("null-ls")
 
+  local diagnostic_config = {
+    diagnostic_config = {
+      virtual_text = false,
+    }
+  }
   local sources = {
     null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.eslint_d,
     null_ls.builtins.code_actions.eslint_d,
-    null_ls.builtins.diagnostics.eslint_d
+    null_ls.builtins.diagnostics.eslint_d.with(diagnostic_config)
   }
 
 
   null_ls.setup({
     default_timeout = 10000,
     sources = sources,
-    debug = true
+    diagnostics_format = "[#{c}] #{m} (#{s})",
+    on_attach = on_attach,
   })
   require("mason").setup()
   require("mason-lspconfig").setup({
@@ -37,6 +43,7 @@ function command.run ()
       --     require("rust-tools").setup {}
       -- end
   }
+  -- vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]
 end
 
 return command

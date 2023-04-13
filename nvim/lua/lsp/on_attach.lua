@@ -1,9 +1,12 @@
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 on_attach = function (client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
 
   -- Mappings.
   local opts = { noremap=true, silent=true }
@@ -27,12 +30,8 @@ on_attach = function (client, bufnr)
 
   buf_set_keymap('n', '<leader>cn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 
-  buf_set_keymap('n', '<leader>bf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  buf_set_keymap('n', '<leader>bf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
   buf_set_keymap('n', '<leader>ba', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-
-  if (client.name == "eslint") then
-    buf_set_keymap('n', '<leader>bf', '<cmd>lua vim.lsp.buf.formatting()<CR><cmd>EslintFixAll<CR>', opts)
-  end
 
   if (client.name == "tsserver") then
     local ts_utils = require("nvim-lsp-ts-utils")
@@ -40,9 +39,20 @@ on_attach = function (client, bufnr)
       auto_inlay_hints = false
     })
     ts_utils.setup_client(client)
+    client.server_capabilities.documentFormattingProvider = false
   end
 
-  --- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+
+  if client.server_capabilities.documentFormattingProvider then
+    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = augroup,
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.format({bufnr = bufnr, async = true})
+      end,
+    })
+  end
 end
 
 return on_attach

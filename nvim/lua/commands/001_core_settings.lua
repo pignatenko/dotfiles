@@ -19,16 +19,14 @@ function core_settings.run ()
   vim.o.autoindent = true
   -- use spaces
   vim.o.expandtab = true
-  -- smarter auto indent check space v tab
-  vim.o.smarttab = true
   -- 2 spaces for shifting left / right
   vim.o.shiftwidth = 2
-  -- round to a multiple of shift width instead of using +2/-2
-  vim.o.shiftround = true
   -- 2 spaces for soft tab
   vim.o.softtabstop = 2
   -- 2 spaces for tab
   vim.o.tabstop = 2
+  -- round to a multiple of shift width instead of using +2/-2
+  vim.o.shiftround = true
   -- show at least 1 line above and below cursor
   vim.o.scrolloff = 1
   -- show at least 5 line above and below cursor when not wrapped
