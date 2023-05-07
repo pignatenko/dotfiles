@@ -14,7 +14,6 @@ plugin = {
     'hrsh7th/cmp-cmdline',
     'quangnguyen30192/cmp-nvim-ultisnips',
     'SirVer/ultisnips',
-    'jose-elias-alvarez/nvim-lsp-ts-utils',
     'jose-elias-alvarez/null-ls.nvim'
   },
   config = function()

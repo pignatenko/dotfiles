@@ -26,7 +26,7 @@ function command.run ()
   })
   require("mason").setup()
   require("mason-lspconfig").setup({
-    ensure_installed = { 'tsserver' }
+    ensure_installed = { 'vtsls' }
   })
   require("mason-lspconfig").setup_handlers {
       -- The first entry (without a key) will be the default handler

@@ -33,15 +33,6 @@ on_attach = function (client, bufnr)
   buf_set_keymap('n', '<leader>bf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
   buf_set_keymap('n', '<leader>ba', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
-  if (client.name == "tsserver") then
-    local ts_utils = require("nvim-lsp-ts-utils")
-    ts_utils.setup({
-      auto_inlay_hints = false
-    })
-    ts_utils.setup_client(client)
-    client.server_capabilities.documentFormattingProvider = false
-  end
-
 
   if client.server_capabilities.documentFormattingProvider then
     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -49,7 +40,7 @@ on_attach = function (client, bufnr)
       group = augroup,
       buffer = bufnr,
       callback = function()
-        vim.lsp.buf.format({bufnr = bufnr, async = true})
+        vim.lsp.buf.format({bufnr = bufnr, async = false})
       end,
     })
   end
