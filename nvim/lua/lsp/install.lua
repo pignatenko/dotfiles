@@ -11,8 +11,8 @@ function command.run ()
     }
   }
   local sources = {
-    null_ls.builtins.formatting.prettier,
     null_ls.builtins.formatting.eslint_d,
+    null_ls.builtins.formatting.prettier,
     null_ls.builtins.code_actions.eslint_d,
     null_ls.builtins.diagnostics.eslint_d.with(diagnostic_config)
   }
@@ -26,7 +26,7 @@ function command.run ()
   })
   require("mason").setup()
   require("mason-lspconfig").setup({
-    ensure_installed = { 'vtsls' }
+    ensure_installed = { 'tsserver' }
   })
   require("mason-lspconfig").setup_handlers {
       -- The first entry (without a key) will be the default handler
@@ -39,11 +39,14 @@ function command.run ()
       end,
       -- Next, you can provide targeted overrides for specific servers.
       -- For example, a handler override for the `rust_analyzer`:
-      -- ["rust_analyzer"] = function ()
-      --     require("rust-tools").setup {}
-      -- end
+      ["tsserver"] = function ()
+          require("typescript").setup({
+            server = {
+              on_attach = on_attach
+            },
+          })
+      end
   }
-  -- vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]]
 end
 
 return command

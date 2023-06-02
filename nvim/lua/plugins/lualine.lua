@@ -1,11 +1,14 @@
 plugin = {
   'nvim-lualine/lualine.nvim',
-  requires = { 'kyazdani42/nvim-web-devicons' },
+  requires = {
+    'kyazdani42/nvim-web-devicons',
+    'folke/tokyonight.nvim',
+  },
   config  = function () 
     require('lualine').setup({
       options = {
           icons_enabled = true,
-          theme = 'palenight',
+          theme = 'tokyonight',
           component_separators = '|',
           section_separators = { left = '', right = '' },
           disabled_filetypes = {},

@@ -33,6 +33,10 @@ on_attach = function (client, bufnr)
   buf_set_keymap('n', '<leader>bf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
   buf_set_keymap('n', '<leader>ba', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
+  if client.name == 'tsserver' then
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+  end
 
   if client.server_capabilities.documentFormattingProvider then
     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })

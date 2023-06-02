@@ -4,7 +4,6 @@ function core_settings.run ()
   vim.cmd([[
     filetype plugin on
     filetype indent on
-    syntax on
     runtime! macros/matchit.vim
   ]])
   -- show absolute number for current line

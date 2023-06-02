@@ -53,8 +53,8 @@ function command.run ()
   -- " nnoremap <leader>'t
 
 
-  -- Copy file name to global clip
-  vimp.nnoremap( '<leader>fyn', ':silent !echo "%:p" | pbcopy<cr>')
+  -- Copy relative file name to global clip
+  vimp.nnoremap( '<leader>fyn', ':silent !echo "%" | pbcopy<cr>')
 
   -- Copy file contents to global clip
   vimp.nnoremap( '<leader>fya', 'gg"+yG')

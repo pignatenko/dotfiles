@@ -4,8 +4,8 @@ plugin = {
   requires = {
     'nvim-lua/plenary.nvim',
     'kyazdani42/nvim-web-devicons',
+    'nvim-treesitter/nvim-treesitter',
     require('plugins/vimp')[1],
-    require('plugins/nvim-treesitter')[1],
     'nvim-telescope/telescope.nvim',
   },
   config = function()

@@ -13,8 +13,10 @@ plugin = {
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
     'quangnguyen30192/cmp-nvim-ultisnips',
+    'sindrets/diffview.nvim',
     'SirVer/ultisnips',
-    'jose-elias-alvarez/null-ls.nvim'
+    'jose-elias-alvarez/null-ls.nvim',
+    'jose-elias-alvarez/typescript.nvim'
   },
   config = function()
     local lsp = require('lsp')
