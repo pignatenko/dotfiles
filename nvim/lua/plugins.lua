@@ -1,47 +1,34 @@
 plugins = {}
 
 function plugins.sync ()
-  local execute = vim.api.nvim_command
-  local fn = vim.fn
+  -- local execute = vim.api.nvim_command
+  -- local fn = vim.fn
 
-  local packer_install_dir = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  -- local packer_install_dir = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 
-  local plug_url_format = ''
-  if vim.g.is_linux then
-    plug_url_format = 'https://hub.fastgit.org/%s'
-  else
-    plug_url_format = 'https://github.com/%s'
-  end
+  -- local plug_url_format = ''
+  -- if vim.g.is_linux then
+  --   plug_url_format = 'https://hub.fastgit.org/%s'
+  -- else
+  --   plug_url_format = 'https://github.com/%s'
+  -- end
 
-  local packer_repo = string.format(plug_url_format, 'wbthomason/packer.nvim')
-  local install_cmd = string.format('10split |term git clone --depth=1 %s %s', packer_repo, packer_install_dir)
+  -- local packer_repo = string.format(plug_url_format, 'wbthomason/packer.nvim')
+  -- local install_cmd = string.format('10split |term git clone --depth=1 %s %s', packer_repo, packer_install_dir)
 
-  if fn.empty(fn.glob(packer_install_dir)) > 0 then
-    vim.api.nvim_echo({{'Installing packer.nvim', 'Type'}}, true, {})
-    execute(install_cmd)
-    execute 'packadd packer.nvim'
-  end
+  -- if fn.empty(fn.glob(packer_install_dir)) > 0 then
+  --   vim.api.nvim_echo({{'Installing packer.nvim', 'Type'}}, true, {})
+  --   execute(install_cmd)
+  --   execute 'packadd packer.nvim'
+  -- end
 
-  vim.cmd [[packadd packer.nvim]]
+  -- vim.cmd [[packadd packer.nvim]]
 
+  local lazy = require('lazy');
+  local directory_module = require('directory_module');
+  local plugins = directory_module('plugins');
+  lazy.setup(plugins);
 
-  local packer = require('packer');
-  packer.startup({function(use)
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-    use 'wbthomason/packer.nvim'
-
-    local directory_module = require('directory_module');
-    local plugins = directory_module('plugins');
-    for _, plugin in ipairs(plugins) do
-      use(plugin)
-    end
-  end,
-  config = {
-    display = {
-      non_interactive = true
-    }
-  }})
 end
 
 return plugins
