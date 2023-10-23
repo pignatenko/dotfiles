@@ -1,6 +1,6 @@
 plugin = {
   'nvim-lualine/lualine.nvim',
-  requires = {
+  dependencies = {
     'kyazdani42/nvim-web-devicons',
     'folke/tokyonight.nvim',
   },

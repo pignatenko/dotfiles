@@ -92,7 +92,23 @@ function core_settings.run ()
   vim.o.title = true
 
   -- Use space as mapleader
-  vim.g.mapleader = ' '
+  vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
+
+  vim.g.mapleader = " "
+
+  vim.cmd([[
+    augroup all_files
+      au!
+      " Put carriage returns in the gutter.
+      autocmd BufWinEnter,BufEnter ?* setlocal cpoptions+=n
+      " Show special characters
+      autocmd BufWinEnter,BufEnter ?* setlocal list
+      " Reset local PWD to env setting
+      autocmd InsertLeave ?* lcd $PWD
+    augroup end
+  ]])
+
+
 end
 
 return core_settings

@@ -1,6 +1,6 @@
 plugin = {
   'epwalsh/obsidian.nvim',
-  requires = {
+  dependencies = {
     'hrsh7th/nvim-cmp',
     'nvim-telescope/telescope.nvim',
   },

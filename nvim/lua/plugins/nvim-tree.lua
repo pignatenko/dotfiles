@@ -1,7 +1,7 @@
 -- nvim-tree displays a file tree
 plugin = {
   'kyazdani42/nvim-tree.lua',
-  requires = {
+  dependencies = {
     'kyazdani42/nvim-web-devicons',
     require('plugins/vimp')[1],
     require('plugins/nvim-treesitter')[1],

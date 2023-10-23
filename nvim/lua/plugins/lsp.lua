@@ -1,7 +1,7 @@
 -- telescope search random things
 plugin = {
   'hrsh7th/nvim-cmp',
-  requires = {
+  dependencies = {
     'williamboman/mason-lspconfig.nvim',
     'williamboman/mason.nvim',
     'neovim/nvim-lspconfig',
@@ -16,7 +16,12 @@ plugin = {
     'sindrets/diffview.nvim',
     'SirVer/ultisnips',
     'jose-elias-alvarez/null-ls.nvim',
-    'jose-elias-alvarez/typescript.nvim'
+    'jose-elias-alvarez/typescript.nvim',
+    {
+      'creativenull/efmls-configs-nvim',
+      version = 'v1.x.x', -- version is optional, but recommended
+      dependencies = { 'neovim/nvim-lspconfig' },
+    }
   },
   config = function()
     local lsp = require('lsp')

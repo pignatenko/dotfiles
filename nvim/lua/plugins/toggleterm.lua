@@ -1,7 +1,7 @@
 -- Create a terminal and toggle it
 plugin = {
   'akinsho/toggleterm.nvim',
-  requires = {
+  dependencies = {
     require('plugins/vimp')[1],
   },
   config = function()

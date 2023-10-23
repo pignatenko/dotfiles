@@ -56,6 +56,10 @@ function command.run ()
   -- Copy relative file name to global clip
   vimp.nnoremap( '<leader>fyn', ':silent !echo "%" | pbcopy<cr>')
 
+  local opts = { noremap=true, silent=true }
+  vim.keymap.set('n', '<leader>fyn', ':silent !echo "%" | pbcopy<cr>', opts)
+  vim.keymap.set('n', '<leader>t', ':echo "HELLO"<cr>', opts)
+
   -- Copy file contents to global clip
   vimp.nnoremap( '<leader>fya', 'gg"+yG')
 

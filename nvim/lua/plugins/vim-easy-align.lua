@@ -1,6 +1,6 @@
 plugin = {
   'junegunn/vim-easy-align',
-  requires = {{require('plugins/vimp')[1]}},
+  dependencies = {{require('plugins/vimp')[1]}},
   config = function ()
     local vimp = require('vimp')
 

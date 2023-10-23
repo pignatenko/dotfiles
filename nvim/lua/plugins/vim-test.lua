@@ -1,6 +1,6 @@
 plugin = {
   'vim-test/vim-test',
-  requires = {
+  dependencies = {
     'svermeulen/vimpeccable',
   },
   config = function ()

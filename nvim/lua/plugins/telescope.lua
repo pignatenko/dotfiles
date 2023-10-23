@@ -1,27 +1,27 @@
 -- telescope search random things
 plugin = {
   'brookhong/telescope-pathogen.nvim',
-  requires = {
+  dependencies = {
     'nvim-lua/plenary.nvim',
     'kyazdani42/nvim-web-devicons',
     'nvim-treesitter/nvim-treesitter',
-    require('plugins/vimp')[1],
     'nvim-telescope/telescope.nvim',
   },
+  lazy = false,
   config = function()
     local vimp = require('vimp')
 
-    vimp.noremap('<leader>fs', ':Telescope find_files<cr>')
-    vimp.noremap('<leader>fg', ':Telescope live_grep<cr>')
-    vimp.noremap('<leader>fb', ':Telescope buffers<cr>')
-    vimp.noremap('<leader>ft', ':Telescope tags<cr>')
-    vimp.noremap('<leader>fh', ':Telescope help_tags<cr>')
-    vimp.noremap('<leader>fq', ':Telescope quickfix<cr>')
-    vimp.noremap('<leader>fl', ':Telescope loclist<cr>')
-    vimp.noremap('<leader>fj', ':Telescope jumplist<cr>')
-    vimp.noremap('<leader>fr', ':Telescope registers<cr>')
-    -- vimp.noremap('<leader>fld', ':Telescope diagnostics<cr>')
-    -- vimp.noremap('<leader>flr', ':Telescope lsp_references<cr>')
+    local opts = { noremap=true, silent=true }
+    print("HELLO TELE")
+    vim.keymap.set('n', '<leader>fs', ':Telescope find_files<cr>', opts)
+    vim.keymap.set('n', '<leader>fg', ':Telescope live_grep<cr>', opts)
+    vim.keymap.set('n', '<leader>fb', ':Telescope buffers<cr>', opts)
+    vim.keymap.set('n', '<leader>ft', ':Telescope tags<cr>', opts)
+    vim.keymap.set('n', '<leader>fh', ':Telescope help_tags<cr>', opts)
+    vim.keymap.set('n', '<leader>fq', ':Telescope quickfix<cr>', opts)
+    vim.keymap.set('n', '<leader>fl', ':Telescope loclist<cr>', opts)
+    vim.keymap.set('n', '<leader>fj', ':Telescope jumplist<cr>', opt)
+    vim.keymap.set('n', '<leader>fr', ':Telescope registers<cr>', opts)
 
     require("telescope").load_extension("pathogen")
     vim.keymap.set('v', '<space>g', require("telescope").extensions["pathogen"].grep_string)
