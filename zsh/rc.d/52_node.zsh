@@ -18,6 +18,19 @@ __load_node() {
 
 chpwd_functions+=__load_node
 
+__memo_original_path() {
+  if [ -z "$ORIGINAL_PATH" ]; then
+    export ORIGINAL_PATH="$PATH";
+  fi
+}
+
+precmd+=__memo_original_path
+
+__set_node_path() {
+  CWD=$(pwd);
+}
+
+
 __run_fnm_use() {
   if [ -f .nvmrc ] || [ -f .node-version ]; then
     fnm use
@@ -25,3 +38,5 @@ __run_fnm_use() {
 }
 
 chpwd_functions+=__run_fnm_use
+
+__run_fnm_use
