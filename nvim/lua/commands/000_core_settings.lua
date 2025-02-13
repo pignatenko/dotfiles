@@ -73,8 +73,9 @@ function core_settings.run()
 	vim.o.linespace = 3
 	-- Always show last window status on status line
 	vim.o.laststatus = 2
-	-- Fold with syntax
-	vim.o.foldmethod = "syntax"
+	-- Fold with treesitter syntax
+	vim.o.foldmethod = "expr"
+	vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 	-- Start with 99 fold level (see all)
 	vim.o.foldlevelstart = 99
 	-- Size of fold column

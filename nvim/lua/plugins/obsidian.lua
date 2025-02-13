@@ -14,7 +14,8 @@ plugin = {
       completion = {
         nvim_cmp = true, -- if using nvim-cmp, otherwise set to false
       },
-      use_advanced_uri = true
+      use_advanced_uri = true,
+      ui = { enable = false },
     })
 
     local vimp = require('vimp')

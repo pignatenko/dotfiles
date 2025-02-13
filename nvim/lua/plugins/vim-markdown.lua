@@ -1,5 +1,8 @@
 plugin = {
-  'plasticboy/vim-markdown'
+  'plasticboy/vim-markdown',
+  config = function()
+    vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+  end
 }
 
 return plugin
