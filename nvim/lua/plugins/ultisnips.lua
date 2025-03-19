@@ -1,7 +1,7 @@
 plugin = {
-  'SirVer/ultisnips',
-  config = function()
-  vim.cmd([[
+	"SirVer/ultisnips",
+	init = function()
+		vim.cmd([[
     let g:UltiSnipsExpandTrigger="<c-x><c-m>"
     let g:UltiSnipsListSnippets="<c-l>"
     let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -9,7 +9,7 @@ plugin = {
     let g:UltiSnipsEditSplit="vertical"
     let g:UltiSnipsSnippetDirectories=["macros"]
   ]])
-  end
+	end,
 }
 
 return plugin
