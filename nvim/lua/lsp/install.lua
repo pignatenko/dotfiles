@@ -1,37 +1,36 @@
 command = {}
 
 function getEnvLogLevel()
-  local logLevelEnv = os.getenv("NVIM_LSP_LOG_LEVEL");
-  if logLevelEnv == "OFF" or logLevelEnv == "off" then
-    return "OFF"
-  end
+	local logLevelEnv = os.getenv("NVIM_LSP_LOG_LEVEL")
+	if logLevelEnv == "OFF" or logLevelEnv == "off" then
+		return "OFF"
+	end
 
-  if logLevelEnv == "ERROR" or logLevelEnv == "error" then
-    return "ERROR"
-  end
+	if logLevelEnv == "ERROR" or logLevelEnv == "error" then
+		return "ERROR"
+	end
 
+	if logLevelEnv == "WARN" or logLevelEnv == "warn" then
+		return "WARN"
+	end
 
-  if logLevelEnv == "WARN" or logLevelEnv == "warn" then
-    return "WARN"
-  end
+	if logLevelEnv == "INFO" or logLevelEnv == "info" then
+		return "INFO"
+	end
 
-  if logLevelEnv == "INFO" or logLevelEnv == "info" then
-    return "INFO"
-  end
+	if logLevelEnv == "DEBUG" or logLevelEnv == "debug" then
+		return "DEBUG"
+	end
 
-  if logLevelEnv == "DEBUG" or logLevelEnv == "debug" then
-    return "DEBUG"
-  end
+	if logLevelEnv == "TRACE" or logLevelEnv == "trace" then
+		return "TRACE"
+	end
 
-  if logLevelEnv == "TRACE" or logLevelEnv == "trace" then
-    return "TRACE"
-  end
-
-  return "WARN"
+	return "WARN"
 end
 
 function command.run()
-	vim.lsp.set_log_level(getEnvLogLevel());
+	vim.lsp.set_log_level(getEnvLogLevel())
 	vim.api.nvim_create_user_command("NxInit", function()
 		-- print("Running nx init...")
 		local now = tostring(os.time())
@@ -126,7 +125,6 @@ function command.run()
 
 	local on_attach = require("lsp/on_attach")
 
-
 	local diagnostic_config = {
 		diagnostic_config = {
 			virtual_text = false,
@@ -186,7 +184,7 @@ function command.run()
 					"nativescript.config.ts"
 				),
 				settings = {
-					tsserver_plugins = { "@monodon/typescript-nx-imports-plugin" },
+					-- tsserver_plugins = { "@monodon/typescript-nx-imports-plugin" },
 					tsserver_file_preferences = {
 						importModuleSpecifierPreference = "project-relative",
 						includeCompletionsForModuleExports = true,
