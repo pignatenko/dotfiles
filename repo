@@ -3,6 +3,37 @@
 # This file unlinks all links in the manifest
 source ./link-manifest
 
+declare -A inverted_links
+for key in "${!links[@]}"; do
+  value="${links[$key]}"
+  inverted_links["$value"]="$key"
+done
+
+declare -a __depths
+__depths=()
+for target in ${links[@]}; do
+  count=$(tr -dc '/' <<< "$target" | wc -c)
+  __depths+=("$count/$target")
+done
+
+__targets_by_depth_base=$(echo "${__depths[@]}" | tr ' ' '\n' | tr -s '\n' '\n' | sort -t/ -k1 | cut -d '/' -f 2-)
+__targets_by_depth=$(echo "$__targets_by_depth_base" | sort)
+__targets_by_depth_reverse=$(echo "$__targets_by_depth_base" | sort -r)
+
+declare -a link_sources_by_target_depths
+link_sources_by_target_depths=()
+for target in $__targets_by_depth; do
+  repo_source="${inverted_links[$target]}"
+  link_sources_by_target_depths+=("${repo_source}")
+done
+
+declare -a link_sources_by_target_depths_reverse
+link_sources_by_target_depths_reverse=()
+for target in $__targets_by_depth_reverse; do
+  repo_source="${inverted_links[$target]}"
+  link_sources_by_target_depths_reverse+=("${repo_source}")
+done
+
 usage() {
   echo "Usage: dotfiles <command>"
   echo "Commands:"
