@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+FILE="$(mktemp)"
+cat /dev/stdin > "$FILE" 
+/opt/homebrew/bin/kitty --single-instance --wait-for-single-instance-window-close -o macos_quit_when_last_window_closed=yes nvim "$FILE" &> /dev/null
+cat "$FILE"

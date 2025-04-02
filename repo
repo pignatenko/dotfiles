@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+# This file unlinks all links in the manifest
+source ./link-manifest
+
+usage() {
+  echo "Usage: dotfiles <command>"
+  echo "Commands:"
+  echo "  link -- link dotfiles to the local system"
+  echo "  unlink -- remove all links dotfiles from the local system"
+  echo "  force-remove <dir> -- mova all files in the link paths to the specified directory"
+  exit 1
+}
+
+if [ "$1" = 'link' ]; then
+  for source in ${link_sources_by_target_depths[@]}; do
+    target="${links[$source]}"
+    echo "linking ${source} to ${target}"
+    SOURCE_PATH=$(realpath ${source})
+    echo "  ln -s ${SOURCE_PATH} ${links[$source]}"
+    echo ""
+    ln -s ${SOURCE_PATH} ${links[$source]}
+  done
+  exit 0
+fi
+
+if [ "$1" = 'unlink' ]; then
+  for source in ${link_sources_by_target_depths_reverse[@]}; do
+    echo "unlink ${links[$source]}"
+    unlink ${links[$source]}
+  done
+  exit 0
+fi
+
+if [ "$1" = 'force-remove' ] && [ -n "$2" ]; then
+  mkdir -p "$2"
+  for source in ${link_sources_by_target_depths_reverse[@]}; do
+    echo "mv ${links[$source]} $2"
+    mv "${links[$source]}" "$2"
+  done
+  exit 0
+fi
+
+
+usage
+

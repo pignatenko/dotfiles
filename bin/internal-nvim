@@ -1,0 +1,31 @@
+#!/bin/zsh
+# This command is a replacement for `nvim` when it needs to be called inside of
+# a terminal that is inside of an existing nvim instance. It replaces the
+# terminal split with a split of the file.
+
+usage() {
+  echo "Usage: internal-vim <file>"
+  exit 1;
+}
+
+if [ -z "$NVIM" ]; then
+  echo "Cannot find \$NVIM variable. This should be used in terminals inside nvim."
+  exit 1;
+fi
+
+if [ -z "$1" ]; then
+  usage
+fi
+
+if [ "$1" = '-h' ] || [ "$1" = '--help' ]; then
+  usage
+fi
+
+if [ "$1" = '-v' ] || [ "$1" = '--version' ]; then
+  usage
+fi
+
+
+printf -v FILE "/%s" "$(PWD)" "$1"
+nvim --server "$NVIM" --remote-send "<C-\><C-n>:ToggleTerm<CR>:split ${FILE}<CR>"
+

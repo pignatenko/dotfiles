@@ -1,16 +1,12 @@
 EDITOR_SET=$(false)
 
-if silent command -v nvr && [[ -z "$NVIM_LISTEN_ADDRESS" ]]; then
-  export VISUAL='nvr';
-  export EDITOR='nvr';
-  EDITOR_SET=$(true)
-elif silent command -v nvr;  then
-  export VISUAL='nvr -s --servername "$(mktemp -d)/nvim.socket"';
-  export EDITOR='nvr -s --servername "$(mktemp -d)/nvim.socket"';
+if silent command -v nvim && (( ${+NVIM} )) ; then
+  export VISUAL='internal-nvim';
+  export EDITOR='internal-nvim';
   EDITOR_SET=$(true)
 elif silent command -v nvim; then
-  export VISUAL='nvim';
-  export EDITOR='nvim';
+  export EDITOR='nvim --listen "$(mktemp -d)/nvim.socket"';
+  export VISUAL='nvim --listen "$(mktemp -d)/nvim.socket"';
   EDITOR_SET=$(true)
 elif silent command -v vim; then
   export VISUAL='vim';
