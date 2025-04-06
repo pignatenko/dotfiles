@@ -72,12 +72,6 @@ function command.run ()
   vimp.nnoremap( '<leader>P', '"+P')
   vimp.vnoremap( '<leader>p', '"+p')
   vimp.vnoremap( '<leader>P', '"+P')
-
-
-  -- Quick fix last and next
-  vimp.nnoremap( '[q', ':cprev<cr>')
-  vimp.nnoremap( ']q', ':cnext<cr>')
-
 end
 
 return command
