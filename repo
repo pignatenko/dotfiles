@@ -48,9 +48,22 @@ if [ "$1" = 'link' ]; then
     target="${links[$source]}"
     echo "linking ${source} to ${target}"
     SOURCE_PATH=$(realpath ${source})
-    echo "  ln -s ${SOURCE_PATH} ${links[$source]}"
-    echo ""
-    ln -s ${SOURCE_PATH} ${links[$source]}
+    if [ -e "${target}" ] && [ "$2" != "-f" ]; then
+      echo " ${target} exists, -f wasn't passed, skipping"
+    elif [ -e "${target}" ] && [ "$2" = "-f" ]; then
+      echo " ${target} exists, removing"
+
+      echo "  rm -fr ${target}"
+      rm -fr "${target}"
+      echo "  ln -s ${SOURCE_PATH} ${target}"
+      echo ""
+      ln -s ${SOURCE_PATH} ${target}
+
+    else
+      echo "  ln -s ${SOURCE_PATH} ${target}"
+      echo ""
+      ln -s ${SOURCE_PATH} ${target}
+    fi
   done
   exit 0
 fi
