@@ -5,6 +5,7 @@
 
 declare -A links
 links=(
+  ['./efm-langserver']="$HOME/.config/efm-langserver"
   ['./nvim']="$HOME/.config/nvim"
   ['./zsh']="$HOME/.zsh"
   ['./zsh/zshrc']="$HOME/.zsh/.zshrc"
