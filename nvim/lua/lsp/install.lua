@@ -169,13 +169,68 @@ function command.run()
 		end,
 		-- Next, you can provide targeted overrides for specific servers.
 		-- For example, a handler override for the `rust_analyzer`:
+		-- ["vtsls"] = function()
+		-- 	require("lspconfig").vtsls.setup({
+		-- 		on_init = function(client, bufnr)
+		-- 			vim.schedule(function()
+		-- 				vim.cmd.NxInit()
+		-- 			end)
+		-- 		end,
+
+		-- 		on_attach = on_attach,
+		-- 		root_dir = require("lspconfig.util").root_pattern(
+		-- 			"angular.json",
+		-- 			"nx.json",
+		-- 			"project.json",
+		-- 			"nativescript.config.ts"
+		-- 		),
+		-- 		settings = {
+		-- 			-- tsserver_plugins = { "@monodon/typescript-nx-imports-plugin" },
+		-- 			vtsls = {
+		-- 				enableMoveToFileCodeAction = true,
+		-- 				autoUseWorkspaceTsdk = true,
+		-- 			},
+		-- 			-- typescript = {
+		-- 			-- 	tsserver = {
+		-- 			-- 		log = "verbose",
+		-- 			-- 	},
+		-- 			-- },
+		-- 			tsserver_file_preferences = {
+		-- 				importModuleSpecifierPreference = "project-relative",
+		-- 				includeCompletionsForModuleExports = true,
+		-- 			},
+		-- 		},
+		-- 	})
+		-- end,
 		["ts_ls"] = function()
+			-- require("typescript-tools").setup({
+			-- 	on_init = function(client, bufnr)
+			-- 		vim.schedule(function()
+			-- 			vim.cmd.NxInit()
+			-- 		end)
+			-- 	end,
+			-- 	on_attach = on_attach,
+			-- 	root_dir = require("lspconfig.util").root_pattern(
+			-- 		"angular.json",
+			-- 		"nx.json",
+			-- 		"project.json",
+			-- 		"nativescript.config.ts"
+			-- 	),
+			-- 	settings = {
+			-- 		-- tsserver_plugins = { "@monodon/typescript-nx-imports-plugin" },
+			-- 		tsserver_file_preferences = {
+			-- 			importModuleSpecifierPreference = "project-relative",
+			-- 			includeCompletionsForModuleExports = true,
+			-- 		},
+			-- 	},
+			-- })
 			require("typescript-tools").setup({
 				on_init = function(client, bufnr)
 					vim.schedule(function()
 						vim.cmd.NxInit()
 					end)
 				end,
+
 				on_attach = on_attach,
 				root_dir = require("lspconfig.util").root_pattern(
 					"angular.json",
@@ -185,6 +240,16 @@ function command.run()
 				),
 				settings = {
 					-- tsserver_plugins = { "@monodon/typescript-nx-imports-plugin" },
+					vtsls = {
+						enableMoveToFileCodeAction = true,
+						autoUseWorkspaceTsdk = true,
+					},
+					tsserver_logs = "verbose",
+					-- typescript = {
+					-- 	tsserver = {
+					-- 		log = "verbose",
+					-- 	},
+					-- },
 					tsserver_file_preferences = {
 						importModuleSpecifierPreference = "project-relative",
 						includeCompletionsForModuleExports = true,
