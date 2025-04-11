@@ -18,6 +18,7 @@ plugin = {
         au TermOpen * setlocal foldcolumn=0
         au TermOpen * tnoremap <buffer> <Esc> <C-\><C-n>
         au TermOpen * tnoremap <buffer> <S-BS> <BS>
+        au TermOpen * setlocal nospell
       augroup end
     ]])
 	end,
