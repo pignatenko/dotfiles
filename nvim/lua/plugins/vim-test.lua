@@ -1,19 +1,15 @@
 plugin = {
 	"vim-test/vim-test",
-	dependencies = {
-		"svermeulen/vimpeccable",
-	},
-	config = function()
-		vim.cmd([[
-      let test#strategy = 'neovim'
-    ]])
-		local vimp = require("vimp")
-		vimp.nnoremap("<leader>tn", ":TestNearest<CR>")
-		vimp.nnoremap("<leader>tf", ":TestFile<CR>")
-		vimp.nnoremap("<leader>ts", ":TestSuite<CR>")
-		vimp.nnoremap("<leader>tl", ":TestLast<CR>")
-		vimp.nnoremap("<leader>tv", ":TestVisit<CR>")
+	init = function()
+		vim.g["test#strategy"] = "neovim"
 	end,
+	keys = { -- Example mapping to toggle outline
+		{ "<leader>tn", ":TestNearest<CR>" },
+		{ "<leader>tf", ":TestFile<CR>" },
+		{ "<leader>ts", ":TestSuite<CR>" },
+		{ "<leader>tl", ":TestLast<CR>" },
+		{ "<leader>tv", ":TestVisit<CR>" },
+	},
 }
 
 return plugin

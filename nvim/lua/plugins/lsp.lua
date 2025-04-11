@@ -6,7 +6,6 @@ plugin = {
 		"williamboman/mason.nvim",
 		"neovim/nvim-lspconfig",
 		"nvim-lua/plenary.nvim",
-		require("plugins/vimp")[1],
 		require("plugins/nvim-treesitter")[1],
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",

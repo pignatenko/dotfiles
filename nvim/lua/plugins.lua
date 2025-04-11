@@ -1,6 +1,6 @@
-plugins = {}
+local plugins = {}
 
-function plugins.sync ()
+function plugins.sync()
   -- local execute = vim.api.nvim_command
   -- local fn = vim.fn
 
@@ -24,11 +24,10 @@ function plugins.sync ()
 
   -- vim.cmd [[packadd packer.nvim]]
 
-  local lazy = require('lazy');
-  local directory_module = require('directory_module');
-  local plugins = directory_module('plugins');
-  lazy.setup(plugins);
-
+  local lazy = require("lazy")
+  local directory_module = require("directory_module")
+  local plugins = directory_module("plugins")
+  lazy.setup(plugins)
 end
 
 return plugins

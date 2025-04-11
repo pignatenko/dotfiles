@@ -7,27 +7,17 @@ plugin = {
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-telescope/telescope.nvim",
 	},
-	lazy = false,
 	config = function()
-		local vimp = require("vimp")
-
-		local opts = { noremap = true, silent = true }
-		vim.keymap.set("n", "<leader>fs", ":Telescope find_files<cr>", opts)
-		vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<cr>", opts)
-		vim.keymap.set("n", "<leader>fb", ":Telescope buffers<cr>", opts)
-		vim.keymap.set("n", "<leader>ft", ":Telescope tags<cr>", opts)
-		vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<cr>", opts)
-		vim.keymap.set("n", "<leader>fq", ":Telescope quickfix<cr>", opts)
-		vim.keymap.set("n", "<leader>fl", ":Telescope loclist<cr>", opts)
-		vim.keymap.set("n", "<leader>fj", ":Telescope jumplist<cr>", opt)
-		vim.keymap.set("n", "<leader>fr", ":Telescope registers<cr>", opts)
-
-		require("telescope").load_extension("pathogen")
-		vim.keymap.set("v", "<space>g", require("telescope").extensions["pathogen"].grep_string)
-
 		local actions = require("telescope.actions")
 		require("telescope").setup({
 			pickers = {
+				lsp_dynamic_workspace_symbols = {
+					mappings = {
+						i = {
+							["<C-R>"] = actions.to_fuzzy_refine,
+						},
+					},
+				},
 				live_grep = {
 					mappings = {
 						i = {
@@ -37,10 +27,18 @@ plugin = {
 				},
 			},
 		})
-
-		-- TODO Treesitter
-		-- TODO LSP
 	end,
+	keys = {
+		{ "<leader>fs", ":Telescope find_files<cr>", remap = false },
+		{ "<leader>fg", ":Telescope live_grep<cr>", remap = false },
+		{ "<leader>fb", ":Telescope buffers<cr>", remap = false },
+		{ "<leader>ft", ":Telescope tags<cr>", remap = false },
+		{ "<leader>fh", ":Telescope help_tags<cr>", remap = false },
+		{ "<leader>fq", ":Telescope quickfix<cr>", remap = false },
+		{ "<leader>fl", ":Telescope loclist<cr>", remap = false },
+		{ "<leader>fj", ":Telescope jumplist<cr>", remap = false },
+		{ "<leader>fr", ":Telescope registers<cr>", remap = false },
+	},
 }
 
 return plugin

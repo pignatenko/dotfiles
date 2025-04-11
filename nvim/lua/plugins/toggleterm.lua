@@ -1,26 +1,23 @@
 -- Create a terminal and toggle it
 plugin = {
 	"akinsho/toggleterm.nvim",
-	dependencies = {
-		require("plugins/vimp")[1],
-	},
 	config = function()
-		require("toggleterm").setup({})
-		local vimp = require("vimp")
-
-		vimp.nnoremap("<Leader>tt", ":ToggleTerm<cr>")
-
-		vim.cmd([[
-      augroup terminal
-        au!
-        au TermOpen * setlocal nonumber
-        au TermOpen * setlocal norelativenumber
-        au TermOpen * setlocal foldcolumn=0
-        au TermOpen * tnoremap <buffer> <Esc> <C-\><C-n>
-        au TermOpen * tnoremap <buffer> <S-BS> <BS>
-        au TermOpen * setlocal nospell
-      augroup end
-    ]])
+		require("toggleterm").setup({
+			open_mapping = "<leader>tt",
+		})
+		local augroup = vim.api.nvim_create_augroup("Toggle Terminal Commands", {})
+		vim.api.nvim_clear_autocmds({ group = augroup })
+		vim.api.nvim_create_autocmd("TermOpen", {
+			group = augroup,
+			pattern = { "*" },
+			callback = function()
+				vim.opt_local.number = false
+				vim.opt_local.relativenumber = false
+				vim.opt_local.foldcolumn = "0"
+				vim.opt_local.spell = false
+				vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { buffer = true, remap = false })
+			end,
+		})
 	end,
 }
 

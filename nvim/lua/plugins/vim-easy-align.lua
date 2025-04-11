@@ -1,15 +1,15 @@
 plugin = {
-  'junegunn/vim-easy-align',
-  dependencies = {{require('plugins/vimp')[1]}},
-  config = function ()
-    local vimp = require('vimp')
-
-      -- For visual mode (e.g. vip<Enter>)
-    vimp.vnoremap('<Enter>', '<Plug>(EasyAlign)')
-
-      -- For normal mode, with Vim movement (e.g. <Leader>aip)
-    vimp.nnoremap('<Leader>a', '<Plug>(EasyAlign)')
-  end
+	"junegunn/vim-easy-align",
+	keys = {
+		{
+			"<Enter>",
+			"<Plug>(EasyAlign)",
+			mode = { "v" },
+			remap = false,
+			desc = "Easy Align Visual Mode",
+		},
+		{ "<leader>a", "<Plug>(EasyAlign)", remap = false, desc = "Easy Align Motion" },
+	},
 }
 
 return plugin
