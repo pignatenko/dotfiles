@@ -1,6 +1,7 @@
 plugin = {
-  'iamcco/markdown-preview.nvim',
-  config = function ()
+  "iamcco/markdown-preview.nvim",
+  cmd = "MarkdownPreview",
+  config = function()
     vim.cmd([[
       call mkdp#util#install()
       let g:mkdp_preview_options = {
@@ -19,7 +20,7 @@ plugin = {
         \ }
 
     ]])
-  end
+  end,
 }
 
 return plugin

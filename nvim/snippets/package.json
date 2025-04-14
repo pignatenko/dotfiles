@@ -1,0 +1,39 @@
+{
+  "contributes": {
+    "snippets": [
+      {
+        "language": "json",
+        "path": "./json.json"
+      },
+      {
+        "language": [
+          "javascript",
+          "typescript"
+        ],
+        "path": "./javascript-es6-modules.json"
+      },
+      {
+        "language": [
+          "javascript",
+          "typescript"
+        ],
+        "path": "./javascript-testing.json"
+      },
+      {
+        "language": [
+          "javascript",
+          "typescript"
+        ],
+        "path": "./javascript-functions.json"
+      },
+      {
+        "language": [
+          "javascript",
+          "typescript"
+        ],
+        "path": "./javascript-jsdoc.json"
+      }
+    ]
+  },
+  "name": "my-snippets"
+}

@@ -1,5 +1,5 @@
 -- telescope search random things
-plugin = {
+return {
 	"brookhong/telescope-pathogen.nvim",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -40,5 +40,3 @@ plugin = {
 		{ "<leader>fr", ":Telescope registers<cr>", remap = false },
 	},
 }
-
-return plugin

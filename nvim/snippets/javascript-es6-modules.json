@@ -1,0 +1,32 @@
+{
+  "imp": {
+    "prefix": "import",
+    "body": [
+      "import { ${2:named} } from '${1:module}';"
+    ]
+  },
+  "impd": {
+    "prefix": "import-default",
+    "body": [
+      "import ${2: default} from '${1:module}';"
+    ]
+  },
+  "impa": {
+    "prefix": "import-all",
+    "body": [
+      "import * as ${2:all} from '${1:module}';"
+    ]
+  },
+  "export-reexport-named": {
+    "prefix": "export-reexport-named",
+    "body": [
+      "export { ${ 2:named } } from '${ 1:module }';"
+    ]
+  },
+  "export-reexport-all": {
+    "prefix": "export-reexport-all",
+    "body": [
+      "export ${ 2:* } from '${ 1:module }';"
+    ]
+  }
+}

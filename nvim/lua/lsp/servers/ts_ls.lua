@@ -98,7 +98,9 @@ local server = {
 		documentRangeFormattingProvider = false,
 	},
 	setup = function(overrides)
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
 		local config = {
+			capabilities = capabilities,
 			on_init = function(client, bufnr)
 				vim.schedule(function()
 					vim.cmd.NxInit()

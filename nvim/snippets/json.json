@@ -1,0 +1,22 @@
+{
+  "snippet": {
+    "prefix": "snip",
+    "body": [
+      "\"${1:prefix}\": { ",
+      "  \"prefix\": \"${1:prefix}\",",
+      "  \"body\": [ ",
+      "\"${2:body}\"",
+      "  ]",
+      "}"
+    ]
+  },
+  "snippet-item": {
+    "prefix": "snippet-item",
+    "body": [
+      "{",
+      "\"language\": \"json\"",
+      "\"path\": \"./json.json\"",
+      "}"
+    ]
+  }
+}

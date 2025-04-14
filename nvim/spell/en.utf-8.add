@@ -22,3 +22,8 @@ Tangram
 artisanal
 Within
 @param
+nvim
+treesitter
+rtp
+popup
+keymap

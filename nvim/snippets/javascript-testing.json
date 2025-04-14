@@ -1,0 +1,32 @@
+{
+  "desc": {
+    "prefix": "desc",
+    "body": [
+      "describe('${1:description}', () => {",
+      "  ${2:it.todo('is not filled')}",
+      "});",
+      ""
+    ]
+  },
+  "it": {
+    "prefix": "it",
+    "body": [
+      "it('${1:description}', async () => {",
+      "  ${2:expect(false).toBeTruthy()}",
+      "});",
+      ""
+    ]
+  },
+  "impgiv": {
+    "prefix": "impgiv",
+    "body": [
+      "import { given } from 'given2';"
+    ]
+  },
+  "given": {
+    "prefix": "given",
+    "body": [
+      "given('${1:name}' () => ${2:'defintion'});"
+    ]
+  }
+}

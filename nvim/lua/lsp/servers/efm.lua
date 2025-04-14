@@ -3,6 +3,7 @@ local server = {
 	override_capabilities = {},
 	install = true,
 	setup = function(overrides)
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
 		local eslint = require("efmls-configs.linters.eslint")
 		local prettier = require("efmls-configs.formatters.prettier")
 		local stylua = require("efmls-configs.formatters.stylua")
@@ -15,6 +16,7 @@ local server = {
 		}
 
 		local config = {
+			capabilities = capabilities,
 			filetypes = vim.tbl_keys(languages),
 			settings = {
 				languages = languages,
