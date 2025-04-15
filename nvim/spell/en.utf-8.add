@@ -27,3 +27,5 @@ treesitter
 rtp
 popup
 keymap
+github
+memoized

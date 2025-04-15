@@ -1,6 +1,7 @@
 -- telescope search random things
 plugin = {
 	"saghen/blink.cmp",
+	event = "VeryLazy",
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		"williamboman/mason.nvim",

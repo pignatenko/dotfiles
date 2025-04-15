@@ -89,7 +89,9 @@ return {
 
 		vim.g.mapleader = " "
 		vim.o.spelloptions = "camel"
+
 		-- Use local config
 		vim.o.exrc = true
+		vim.opt.matchpairs:append("<:>")
 	end,
 }

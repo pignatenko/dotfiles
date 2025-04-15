@@ -50,6 +50,8 @@ return {
             a = { "@block.outer", "@conditional.outer", "@loop.outer" },
             i = { "@block.inner", "@conditional.inner", "@loop.inner" },
           }),
+          p = ai.gen_spec.treesitter({ a = "@parameter.outer", i = "@parameter.inner" }), -- function
+          r = ai.gen_spec.treesitter({ a = "@return.outer", i = "@return.inner" }), -- function
           f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }), -- function
           c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }),  -- class
           t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },      -- tags
