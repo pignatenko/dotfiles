@@ -2,4 +2,12 @@
 -- settings.apply(settings.WINDOW)
 -- settings.apply(settings.BUFFER)
 --
-
+-- vim.keymap.del({ "n", "x" }, "y", { buffer = true })
+-- vim.keymap.del({ "n", "x" }, "p", { buffer = true })
+-- vim.keymap.del({ "n", "x" }, "P", { buffer = true })
+-- vim.keymap.del({ "n", "x" }, "gp", { buffer = true })
+-- vim.keymap.del({ "n", "x" }, "gP", { buffer = true })
+-- vim.keymap.del({ "n", "v" }, "<leader>y", { buffer = true })
+-- vim.keymap.del({ "n" }, "<leader>Y", { buffer = true })
+-- vim.keymap.del({ "n", "v" }, "<leader>p", { buffer = true })
+-- vim.keymap.del({ "n", "v" }, "<leader>P", { buffer = true })

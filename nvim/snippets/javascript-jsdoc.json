@@ -1,18 +1,22 @@
 {
-  "jsoc-const": {
-    "prefix": "jsdoc-const",
-    "body": [
-      "/** ${1:TODO: Describe the constant} */"
-    ]
-  },
-  "jsoc-function": {
-    "prefix": "jsdoc-function",
+  "@jsdoc": {
+    "prefix": "@jsdoc",
     "body": [
       "/**",
-      " * ${1:TODO: Describe the function}",
-      " * @param ${2: describe the param}",
-      " * @returns ${3: describe the return value}",
+      "  * $0 ",
       " */"
+    ]
+  },
+  "@param": {
+    "prefix": "@param",
+    "body": [
+      "@param ${1:name} ${0: describe}"
+    ]
+  },
+  "@returns": {
+    "prefix": "@returns",
+    "body": [
+      "@returns ${0}"
     ]
   }
 }
