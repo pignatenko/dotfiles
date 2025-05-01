@@ -1,3 +1,9 @@
-/opt/homebrew/bin/displayplacer "id:93A1D003-3DD3-442B-8637-BD7A972E1E4C res:1920x1080 hz:50 color_depth:8 enabled:true scaling:off origin:(0,0) degree:0" "id:D58EE87B-94BC-49EB-86F2-18E4D28DF4CB res:1920x1080 hz:50 color_depth:8 enabled:true scaling:off origin:(1920,0) degree:0"
+RESET=$(/opt/homebrew/bin/displayplacer list | grep 'displayplacer "' | sed 's:displayplacer:/opt/homebrew/bin/displayplacer:')
+SET=$(echo "$RESET" | sed 's/hz:60/hz:50/g')
 
-/opt/homebrew/bin/displayplacer "id:93A1D003-3DD3-442B-8637-BD7A972E1E4C res:1920x1080 hz:60 color_depth:8 enabled:true scaling:off origin:(0,0) degree:0" "id:D58EE87B-94BC-49EB-86F2-18E4D28DF4CB res:1920x1080 hz:60 color_depth:8 enabled:true scaling:off origin:(1920,0) degree:0"
+
+eval "$SET"
+eval "$RESET"
+
+
+

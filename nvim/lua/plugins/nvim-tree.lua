@@ -4,6 +4,7 @@ plugin = {
 	dependencies = {
 		"kyazdani42/nvim-web-devicons",
 		require("plugins/nvim-treesitter")[1],
+		require("plugins/yanky"),
 	},
 	tag = "nightly",
 	config = function()
