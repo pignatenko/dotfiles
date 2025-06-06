@@ -37,12 +37,24 @@ function command.run()
 	for _, server in ipairs(servers) do
 		table.insert(server_names, server.name)
 	end
-	local setup_handlers = require("lsp/setup_handlers")
 	require("mason").setup()
 	require("mason-lspconfig").setup({
 		ensure_installed = server_names,
 	})
-	require("mason-lspconfig").setup_handlers(setup_handlers)
+
+  local on_attach = require("lsp/on_attach")
+  local overrides = {
+    on_attach = on_attach,
+  }
+
+  for _, server in ipairs(servers) do
+    if server.name ~= nil and server.setup ~= nil then
+      server.setup(overrides)
+    elseif server.name == nil then
+      vim.print("Detected badly formatted or unknown server")
+    end
+  end
+
 end
 
 return command

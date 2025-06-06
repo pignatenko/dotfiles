@@ -25,3 +25,4 @@ for _, server in ipairs(servers) do
 end
 
 return setup_handlers
+

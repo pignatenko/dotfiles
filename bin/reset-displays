@@ -1,5 +1,6 @@
 RESET=$(/opt/homebrew/bin/displayplacer list | grep 'displayplacer "' | sed 's:displayplacer:/opt/homebrew/bin/displayplacer:')
 SET=$(echo "$RESET" | sed 's/hz:60/hz:50/g')
+RESET=$(echo "$RESET" | sed 's/hz:50/hz:60/g')
 
 
 eval "$SET"
